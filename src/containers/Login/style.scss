@@ -1,0 +1,193 @@
+.login-container {
+  min-height: 100vh;
+  overflow: hidden;
+  
+  display: flex;
+  .login-form {
+    width: 40%;
+    position: relative;
+    section {
+      padding: 40px 40px;
+      width: 70%;
+      margin: auto;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 18%;
+      .title-step {
+        margin-bottom: 40px;
+        div {
+          color: #1b344e;
+          font-size: 25px;
+          font-weight: bold;
+        }
+        .description {
+          margin-top: 10px;
+          font-size: 14px;
+          color: #bbbbbb;
+          font-weight: normal;
+        }
+      }
+      .login-with-account {
+        font-size: 13px;
+        font-weight: bold;
+        margin-top: 35px;
+        color: #1b344e;
+        a {
+          color: #48aee1;
+        }
+      }
+      .create-account-btn {
+        width: 100%;
+        background-color: #48aee1;
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        font-size: 14px;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+      }
+      form {
+        .title-input {
+          font-size: 12px;
+          color: #bbbbbb;
+          font-weight: bold;
+          text-transform: uppercase;
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          .check-email {
+            display: flex;
+            align-items: center;
+            padding: 4px 7px;
+            background-color: #f6f6f6;
+            border-radius: 15px;
+            text-transform: none;
+            font-size: 11px;
+            color: #bcd42e;
+            margin-left: 10px;
+            img {
+              width: 10px;
+              padding: 3px;
+              background-color: #bcd42e;
+              border-radius: 50%;
+              margin-right: 7px;
+            }
+          }
+        }
+        .email-input {
+          margin-bottom: 25px;
+          input {
+            width: calc(100% - 40px);
+            border-radius: 5px;
+            border: 1px solid gainsboro;
+            padding: 10px 30px 10px 10px;
+            color: #1b344e;
+            font-weight: bold;
+            font-size: 13px;
+            &:focus {
+              outline: none;
+              border-color: #48aee1;
+              box-shadow: 0 2px 9px 0 rgba(72, 174, 225, 0.2);
+            }
+          }
+          .check-password {
+            margin-top: 15px;
+            color: #bcd42e;
+            font-size: 11px;  
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            span {
+              &:last-child {
+                width: 100%;
+                background-color: #bcd42e;
+                height: 7px;
+                border-radius: 7px;
+                display: inline-block;
+                margin-left: 10px;
+              }
+            }    
+          }
+        }
+      }
+    }
+    .header-form {
+      display: flex;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid gainsboro;
+      img {
+        cursor: pointer;
+        width: 65px;
+      }
+      .display-flex {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #1b344e;
+        font-weight: 900;
+        .border {
+          height: 2px;
+          width: 35px;
+          margin: 0px 20px;
+          background-color: gainsboro;
+        }
+        .step {
+          font-size: 16px;
+          font-weight: bold;
+          color: gainsboro;
+          display: flex;
+          align-items: center;
+          span {
+            &:first-child {
+              box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.2);
+              color: #f06e75;
+              display: inline-block;
+              border-radius: 50%;
+              width: 23px;
+              height: 23px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-right: 10px;
+              font-size: 14px;
+            }
+          }
+        }
+        .step-active {
+          span {
+            color: #1b344e;
+            &:first-child {
+              box-shadow: none;
+              background-color: #f06e75;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+  .background-right {
+    border-left: 1px solid gainsboro;
+    width: 60%;
+    background-image: url('./images/a.jpeg');
+    
+    /* Full height */
+    // height: 100vh; 
+
+    /* Center and scale the image nicely */
+    background-position: center -170px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
