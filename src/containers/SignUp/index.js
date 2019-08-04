@@ -1,13 +1,50 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom'
+import { Button, Input, Alert } from 'antd';
+import { compose } from 'recompose';
+
+import { withFirebase } from '../../firebase';
+import * as ROUTES from '../../constants/routes';
+
 import './style.scss'
 
-class SignIn extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      email: '',
+      password: '',
+      rePassword: '',
+      loading: false,
+      error: null,
+    }
   }
 
+  onChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  onSubmit = event => {
+    const { email, password } = this.state;
+    const { firebase, history } = this.props;
+    this.setState({ loading: true });
+    firebase
+      .emailSignup(email, password)
+      .then(authUser => {
+        this.setState({ loading: false });
+        history.push(ROUTES.HOME);
+      })
+      .catch(error => {
+        this.setState({ loading: false });
+        this.setState({ error });
+      });
+    event.preventDefault();
+  };
+
   render() {
+    const { email, password, rePassword, loading, error } = this.state;
+    const isInvalid = password !== rePassword || password === '' || email === '';
+
     return (
       <div className="sign-up-container">
         <div className="login-form">
@@ -34,28 +71,51 @@ class SignIn extends Component {
               <div className="email-input">
                 <div className="title-input">
                   <div>Email address</div>
-                  <div className="check-email">
+                  {/* <div className="check-email">
                     <img src={require('./images/check-mark.svg')} alt="check"/>
                     <span>Not Registered</span>
-                  </div>
+                  </div> */}
                 </div>
                 <div>
-                  <input />
+                  <Input  name="email" value={email} type="text" onChange={this.onChange} />
                 </div>
               </div>
               <div className="email-input">
                 <div className="title-input">
-                  <div>Choose password</div>
+                  <div>Enter password</div>
                 </div>
-                <input type="password" />
+                <Input  type="password" name="password" value={password} onChange={this.onChange} />
                 <div className="check-password">
                   <span>Strong</span>
                   <span className="progress-check-pass" />
                 </div>
               </div>
+              <div className="email-input">
+                <div className="title-input">
+                  <div>Re-type password</div>
+                </div>
+                <Input type="password" name="rePassword" value={rePassword} onChange={this.onChange} />
+                <div className="check-password">
+                  <span>Strong</span>
+                  <span className="progress-check-pass" />
+                </div>
+              </div>
+              <Button
+                block
+                type="primary"
+                loading={loading}
+                disabled={isInvalid}
+                onClick={this.onSubmit}
+                className="create-account-btn"
+              >Create Account</Button>
             </form>
-            <button className="create-account-btn">Create Account</button>
-            <div className="login-with-account">Already have account? <a href="/signin">Sign in here</a></div>
+            <br />
+            {error ? <Alert
+              message={error.message}
+              type="error"
+              closable
+            /> : ''}
+            <div className="login-with-account">Already have account? <Link to={ROUTES.SIGNIN}>Sign in here</Link></div>
           </section>
         </div>
         <div className="background-right">
@@ -65,4 +125,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn
+export default compose(withRouter,withFirebase)(SignUp);

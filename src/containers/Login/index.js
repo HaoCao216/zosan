@@ -1,13 +1,53 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { compose } from 'recompose';
+import { Alert } from 'antd';
+
+
+import { withFirebase } from '../../firebase';
+import * as ROUTES from '../../constants/routes';
 import './style.scss'
+
+const INITIAL_STATE =  {
+  email: '',
+  password: '',
+}
 
 class Login extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = { ...INITIAL_STATE };
   }
 
+  onChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  onSubmit = event => {
+    const { email, password } = this.state;
+    const { firebase, history } = this.props
+
+    firebase
+      .emailSignin(email, password)
+      .then(() => {
+        this.setState({ ...INITIAL_STATE });
+        history.push(ROUTES.HOME);
+      })
+      .catch(error => {
+        console.log('error', error);
+        this.setState({ error });
+      });
+
+    event.preventDefault();
+  };
+
+
+
   render() {
+    const { email, password, error } = this.state;
+
+    const isInvalid = password === '' || email === '';
+
     return (
       <div className="login-container">
         <div className="login-form">
@@ -20,34 +60,31 @@ class Login extends Component {
           <section>
             <div className="title-step">
               <div>Log in</div>
-              {/* <div className="description">Follow the easy steps.</div> */}
             </div>
             <form>
               <div className="email-input">
                 <div className="title-input">
                   <div>Email address</div>
-                  {/* <div className="check-email">
-                    <img src={require('./images/check-mark.svg')} alt="check"/>
-                    <span>Not Registered</span>
-                  </div> */}
                 </div>
                 <div>
-                  <input />
+                  <input type="email" name="email" value={email} onChange={this.onChange} />
                 </div>
               </div>
               <div className="email-input">
                 <div className="title-input">
                   <div>Password</div>
                 </div>
-                <input type="password" />
-                {/* <div className="check-password">
-                  <span>Strong</span>
-                  <span className="progress-check-pass" />
-                </div> */}
+                <input type="password" name="password" value={password} onChange={this.onChange} />
               </div>
             </form>
-            <button className="create-account-btn">Log In</button>
-            <div className="login-with-account">Dont have account? <a href="/signup">Sign up here</a></div>
+            {error ? <Alert
+              message="Invalid email/password"
+              type="error"
+              closable
+            /> : ''}
+            <br />
+            <button disabled={isInvalid} onClick={this.onSubmit} className="create-account-btn">Log In</button>
+            <div className="login-with-account">Dont have account? <Link to={ROUTES.SIGNUP}>Sign up here</Link></div>
           </section>
         </div>
         <div className="background-right">
@@ -57,5 +94,5 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default compose(withFirebase,withRouter)(Login)
 

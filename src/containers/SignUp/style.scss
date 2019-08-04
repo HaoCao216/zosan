@@ -1,8 +1,8 @@
 .sign-up-container {
   min-height: 100vh;
   overflow: hidden;
-  
   display: flex;
+
   .login-form {
     width: 40%;
     position: relative;
@@ -37,21 +37,21 @@
           color: #48aee1;
         }
       }
-      .create-account-btn {
-        width: 100%;
-        background-color: #48aee1;
-        padding: 20px;
-        text-align: center;
-        color: #fff;
-        font-weight: bold;
-        font-size: 14px;
-        border: none;
-        border-radius: 7px;
-        cursor: pointer;
-        &:focus {
-          outline: none;
-        }
-      }
+      // .create-account-btn {
+      //   width: 100%;
+      //   background-color: #48aee1;
+      //   padding: 20px;
+      //   text-align: center;
+      //   color: #fff;
+      //   font-weight: bold;
+      //   font-size: 14px;
+      //   border: none;
+      //   border-radius: 7px;
+      //   cursor: pointer;
+      //   &:focus {
+      //     outline: none;
+      //   }
+      // }
       form {
         .title-input {
           font-size: 12px;
@@ -82,20 +82,20 @@
         }
         .email-input {
           margin-bottom: 25px;
-          input {
-            width: calc(100% - 40px);
-            border-radius: 5px;
-            border: 1px solid gainsboro;
-            padding: 10px 30px 10px 10px;
-            color: #1b344e;
-            font-weight: bold;
-            font-size: 13px;
-            &:focus {
-              outline: none;
-              border-color: #48aee1;
-              box-shadow: 0 2px 9px 0 rgba(72, 174, 225, 0.2);
-            }
-          }
+          // input {
+          //   width: calc(100% - 40px);
+          //   border-radius: 5px;
+          //   border: 1px solid gainsboro;
+          //   padding: 10px 30px 10px 10px;
+          //   color: #1b344e;
+          //   font-weight: bold;
+          //   font-size: 13px;
+          //   &:focus {
+          //     outline: none;
+          //     border-color: #48aee1;
+          //     box-shadow: 0 2px 9px 0 rgba(72, 174, 225, 0.2);
+          //   }
+          // }
           .check-password {
             margin-top: 15px;
             color: #bcd42e;
