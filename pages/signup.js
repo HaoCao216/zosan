@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom'
+import Link from 'next/link';
 import { Button, Input, Alert } from 'antd';
 import { compose } from 'recompose';
 
-import { withFirebase } from '../../firebase';
-import * as ROUTES from '../../constants/routes';
+import { withFirebase } from '../src/firebase';
+import * as ROUTES from '../src/constants/routes';
 
-import './style.scss'
+import './signup.style.scss'
 
 class SignUp extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class SignUp extends Component {
       <div className="sign-up-container">
         <div className="login-form">
           <nav className="header-form">
-            <img src={require('./images/logo.png')} alt="bg" />
+            <img src="/static/images/logo.png" alt="bg" />
             <div className="display-flex">
               <div className="step step-active">
                 <span>1</span>
@@ -115,7 +115,7 @@ class SignUp extends Component {
               type="error"
               closable
             /> : ''}
-            <div className="login-with-account">Already have account? <Link to={ROUTES.SIGNIN}>Sign in here</Link></div>
+            <div className="login-with-account">Already have account? <Link href={ROUTES.SIGNIN}><a>Sign in here</a></Link></div>
           </section>
         </div>
         <div className="background-right">
@@ -125,4 +125,4 @@ class SignUp extends Component {
   }
 }
 
-export default compose(withRouter,withFirebase)(SignUp);
+export default compose(withFirebase)(SignUp);

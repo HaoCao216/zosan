@@ -1,7 +1,6 @@
 .login-container {
   min-height: 100vh;
   overflow: hidden;
-  
   display: flex;
   .login-form {
     width: 40%;
@@ -180,12 +179,7 @@
   .background-right {
     border-left: 1px solid gainsboro;
     width: 60%;
-    background-image: url('./images/a.jpeg');
-    
-    /* Full height */
-    // height: 100vh; 
-
-    /* Center and scale the image nicely */
+    background-image: url('/static/images/a.jpeg');
     background-position: center -170px;
     background-repeat: no-repeat;
     background-size: cover;
