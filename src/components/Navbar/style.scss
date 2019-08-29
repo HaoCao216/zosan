@@ -1,0 +1,34 @@
+.navbar-container {
+  background-color: #fff;
+  height: calc(100vh - 76px);
+  width: 130px;
+  border-right: 1px solid #eceeee;
+  box-shadow: 5px 0 5px -5px #33333342;
+  .profile {
+    img {
+      width: 50px;
+    }
+  }
+  .item-box {
+    border-bottom: 1px solid #eceeee;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 0 5px #33333342;
+      color: #48aee1;
+      font-weight: bold;
+    }
+    div {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 10px;
+      i {
+        font-size: 20px;
+        margin-bottom: 7px;
+      }
+    }
+  }
+}

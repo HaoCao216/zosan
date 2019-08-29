@@ -1,0 +1,24 @@
+.landing-page-container {
+  background-color: #f4f6f6;
+  min-height: calc(100vh);
+  .display-flex {
+    display: flex;
+  }
+  .list-card {
+    width: 100%;
+    padding: 30px 40px 0px 40px;
+    .option-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      .select-type {
+        .ant-radio-button-wrapper-checked {
+          background-color: #48aee1;
+          border-color: #48aee1;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  border-bottom: 1px solid #eceeee;
+  background: #fff;
+  .logo {
+    img {
+      width: 55px;
+      margin-right: 20px;
+    }
+    span {
+      font-size: 22px;
+      font-weight: 400;
+    }
+    margin-right: 30px;
+  }
+  .menu {
+    span {
+      display: inline-block;
+      margin: 0px 20px;
+      text-transform: uppercase;
+      color: #a2a6a7;
+      font-size: 13px;
+      cursor: pointer;
+      position: relative;
+      &:hover {
+        font-weight: bold;
+        color: #606b69;
+        &::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          background-color: #48aee1;
+          height: 2px;
+          bottom: -28px;
+        }
+      }
+    }
+  }
+  .display-flex {
+    display: flex;
+    align-items: center;
+  }
+  .right-options {
+    .notifications {
+      i {
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .search {
+        margin-left: 40px;
+      }
+    }
+  }
+}
