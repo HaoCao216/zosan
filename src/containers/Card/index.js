@@ -43,7 +43,7 @@ class Card extends Component {
 
   render() {
     const { marked, visible } = this.state
-    const { imageStatus } = this.props
+    const { imageStatus, data } = this.props
     return (
       <div className="card-container">
         <div className="title-card">
@@ -82,7 +82,7 @@ class Card extends Component {
             Friday play football with my friends
           </div>
           <div className="message">
-            We are looing for some really great players, for today. We will play till night. Feel free to join us! Welcome for everyone!
+            {data.message}
           </div>
           <div className="info-match">
             <div className="item-info">

@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar'
 import Card from '../../containers/Card'
 import { List, Select, Radio } from 'antd';
 import { Scrollbars } from 'react-custom-scrollbars';
+import Masonry from 'react-masonry-css'
 import shuffle from 'lodash/shuffle';
 import r1 from './images/random1.jpeg';
 import r2 from './images/random2.jpeg';
@@ -21,37 +22,57 @@ const { Option } = Select
 const data = [
   {
     title: 'Title 1',
+    message: 'We are looing for some really ! Welcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepoqwie pqwiepo qiwepo iqwpoei poqwiepoiq wpoeiqwpo iepoqwie poqiwp oiqwpoei poqwiepqw iepoqwie'
   },
   {
     title: 'Title 2',
+    message: 'We are looing for s night. Feel free to join us! Welcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepoqwie pqwiepo qiwepo iqwpoei poqwiepoiq wpoeiqwpo iepoqwie poqiwp oiqwpoei poqwiepqw iepoqwie'
+
   },
   {
     title: 'Title 3',
-  },
-  {
-    title: 'Title 4',
-  },
-  {
-    title: 'Title 4',
-  },
-  {
-    title: 'Title 4',
-  },
-  {
-    title: 'Title 4',
-  },
-  {
-    title: 'Title 4',
-  },
+    message: 'We are looing for some really great playe  Feel free to join us! Welcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepoqwie pqwiepo qiwepo iqwpoei poqwiepoiq wpoeiqwpo iepoqwie poqiwp oiqwpoei poqwiepqw iepoqwie'
 
-  {
-    title: 'Title 4',
   },
   {
     title: 'Title 4',
+    message: 'We are looight. Feel free to join us! Welcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepoqwie pqwiepo qiwepo iqwpoei poqwiepoiq wpoeiqwpo iepoqwie poqiwp oiqwpoei poqwiepqw iepoqwie'
+
   },
   {
     title: 'Title 4',
+    message: 'We are looing for some really great players, for today. We will play till night. Feel free to o qiwepo iqwpoei poqwiepoiq wpoeiqwpo iepoqwie poqiwp oiqwpoei poqwiepqw iepoqwie'
+
+  },
+  {
+    title: 'Title 5',
+    message: 'We are looing for some really great plwie pqwiepo qiwepo iqwpoei poqwiepoiq wpoeiqwpo iepoqwie poqiwp oiqwpoei poqwiepqw iepoqwie'
+
+  },
+  {
+    title: 'Title 6',
+    message: 'We are looing for some really great players, for today. We will play till night. Feel free to join us! Welcome for everyone! qwoeiqpowi eopqwi poei come for everyone! qwoeiqpowi eopqwi poei come for everyone! qwoeiqpowi eopqwi poei wqpo iepoqwie pqwiepo qiwepo iqwpoei poqwiepoiq wpoeiqwpo iepoqwie poqiwp oiqwpoei poqwiepqw iepoqwie'
+
+  },
+  {
+    title: 'Title 7',
+    message: 'We are looing for some really great players, foss! Welcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepoqwie pqwiepo qiwepo iqwpoei poqwiepoiq wpoeiqwpo iepoqwie poqiwp oiqwpoei poqwiepqw iepoqwie'
+
+  },
+  {
+    title: 'Title 8',
+    message: 'We are looing for some really great placome for everyone! qwoeiqpowi eopqwi poei come for everyone! qwoeiqpowi eopqwi poeicome for everyone! qwoeiqpowi eopqwi poei come for everyone! qwoeiqpowi eopqwi poeijoin us! Welcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepoqwie pqwiepo qiwepo iqwpoei poqwiepoiq wpoeiqwpo iepoqwie poqiwp oiqwpoei poqwiepqw iepoqwie'
+
+  },
+  {
+    title: 'Title 9',
+    message: 'We are looing for some really great players, for today. We will play till come for everyone! qwoeiqpowi eopqwi poei come for everyone! qwoeiqpowi eopqwi poei  night. Feel free to join us! Welcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepoqwie pqwiepo qiwepo iqwpoei poqwiepoiq wpoeiqwpo iepoqwie poqiwp oiqwpoei poqwiepqw iepoqwie'
+
+  },
+  {
+    title: 'Title 10',
+    message: 'We are looing for some really great  plfree to join us! Welcome fo  plfree to join us! Welcome fo  plfree to join us! Welcome fo  plfree to join us! Welcome fo plfree to join us! Welcome fo  plfree to join us! Welcome fo plfree to join us! Welcome for everyone! qwoeiqpowi eopqwi poeiwqpo iepoqwie pqwiepo qiwepo iqwpoei poqwiepoiq wpoeiqwpo iepoqwie poqiwp oiqwpoei poqwiepqw iepoqwie'
+
   },
   
 ];
@@ -84,16 +105,15 @@ class LandingPage extends Component {
               </Select>
             </div>
             <Scrollbars
-                style={{height: 'calc(100vh - 189px)', width: '100%'}}>
-              <List
-                grid={{ column: window.innerWidth > 1500 ? 4 : 3 }}
-                dataSource={data}
-                renderItem={item => (
-                  <List.Item>
-                    <Card imageStatus={shuffle(randomImg).slice(0, 4)} />
-                  </List.Item>
-                )}
-              />
+                style={{height: 'calc(100vh - 139px)', width: '100%'}}>
+              <Masonry
+                breakpointCols={window.innerWidth > 1500 ? 4 : 3}
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column">
+                {
+                  data.map((item) => <Card key={item.title} data={item} imageStatus={shuffle(randomImg).slice(0, 4)} />)
+                }
+              </Masonry>
             </Scrollbars>
           </div>
         </div>
@@ -104,3 +124,12 @@ class LandingPage extends Component {
 
 export default LandingPage
 
+/* <List
+  grid={{ column: window.innerWidth > 1500 ? 4 : 3 }}
+  dataSource={data}
+  renderItem={item => (
+    <List.Item>
+      <Card imageStatus={shuffle(randomImg).slice(0, 4)} />
+    </List.Item>
+  )}
+/> */
