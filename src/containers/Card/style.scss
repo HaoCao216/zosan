@@ -2,8 +2,16 @@
   background: #fff;
   border-radius: 4px;
   box-shadow:0 3px 6px 0 #33333342;
-  padding: 25px 0px 15px 0px;
+  padding: 10px 0px 10px 0px;
   margin: 0px 8px;
+  border: 1px solid #1f1e1e42;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.04);
+    position: relative;
+    z-index: 99;
+  }
   .title-card {
     display: flex;
     align-items: center;

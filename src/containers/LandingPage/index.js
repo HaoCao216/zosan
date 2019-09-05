@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header'
-import Navbar from '../../components/Navbar'
 import Card from '../../containers/Card'
-import { List, Select, Radio } from 'antd';
+import { Select, Radio } from 'antd';
 import { Scrollbars } from 'react-custom-scrollbars';
 import Masonry from 'react-masonry-css'
 import shuffle from 'lodash/shuffle';
@@ -86,9 +85,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div className="landing-page-container">
-        <Header />
         <div className="display-flex">
-          <Navbar />
           <div className="list-card">
             <div className="option-top">
               <div className="select-type">
@@ -104,17 +101,20 @@ class LandingPage extends Component {
                 <Option value="72">Past 3 days</Option>
               </Select>
             </div>
-            <Scrollbars
-                style={{height: 'calc(100vh - 139px)', width: '100%'}}>
+            
               <Masonry
-                breakpointCols={window.innerWidth > 1500 ? 4 : 3}
+                breakpointCols={{
+                  default: 4,
+                  1450: 3,
+                  700: 2,
+                  500: 1
+                }}
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column">
                 {
                   data.map((item) => <Card key={item.title} data={item} imageStatus={shuffle(randomImg).slice(0, 4)} />)
                 }
               </Masonry>
-            </Scrollbars>
           </div>
         </div>
       </div>
@@ -123,13 +123,3 @@ class LandingPage extends Component {
 }
 
 export default LandingPage
-
-/* <List
-  grid={{ column: window.innerWidth > 1500 ? 4 : 3 }}
-  dataSource={data}
-  renderItem={item => (
-    <List.Item>
-      <Card imageStatus={shuffle(randomImg).slice(0, 4)} />
-    </List.Item>
-  )}
-/> */

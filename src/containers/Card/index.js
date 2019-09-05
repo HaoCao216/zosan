@@ -67,8 +67,8 @@ class Card extends Component {
           <Icon className="pre-btn" type="caret-left" onClick={this.previous} />
           <Carousel ref={node => (this.carousel = node)} dots={false}>
             {
-              imageStatus.map(img => (
-                <div>
+              imageStatus.map((img, index) => (
+                <div key={index}>
                   <div className="image-status" style={{backgroundImage: `url(${img}`}}>
                   </div>
                 </div>

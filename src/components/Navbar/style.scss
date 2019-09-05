@@ -1,33 +1,36 @@
 .navbar-container {
-  background-color: #fff;
-  height: calc(100vh - 76px);
-  width: 80px;
-  border-right: 1px solid #eceeee;
-  box-shadow: 5px 0 5px -5px #33333342;
-  .profile {
-    img {
-      width: 50px;
+  .box-item {
+    &:not(:last-child) {
+      border-bottom: 1px solid #192842;
     }
-  }
-  .item-box {
-    border-bottom: 1px solid #eceeee;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    &:hover {
-      box-shadow: 0 0 5px #33333342;
-      color: #48aee1;
+    .title {
       font-weight: bold;
+      padding: 20px 24px;
+      padding-bottom: 10px;
+      color: #fff;
+      font-size: 14px;
     }
-    div {
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 10px;
+    .sub-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all .1s ease;
+      cursor: pointer;
+      padding: 6px 20px;
+      border-left: 4px solid transparent;
+      font-size: 12px;
+      order: 1;
+      font-weight: 600;
+      color: #99a7c1;
+      &:hover {
+        border-left: 4px solid #48aee1;
+        color: #fff
+      }
       i {
-        font-size: 17px;
-        margin-bottom: 7px;
+        font-size: 13px;
+      }
+      &:last-child {
+        margin-bottom: 20px;
       }
     }
   }

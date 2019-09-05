@@ -1,5 +1,5 @@
 .sign-up-container {
-  min-height: 100vh;
+  min-height: calc(100vh - 62px);
   overflow: hidden;
   display: flex;
 
@@ -7,13 +7,13 @@
     width: 40%;
     position: relative;
     section {
-      padding: 40px 40px;
+      padding: 0px 40px;
       width: 70%;
       margin: auto;
       position: absolute;
       left: 50%;
-      transform: translateX(-50%);
-      top: 18%;
+      transform: translateX(-50%) translateY(-50%);
+      top: 50%;
       .title-step {
         margin-bottom: 40px;
         div {
@@ -31,7 +31,7 @@
       .login-with-account {
         font-size: 13px;
         font-weight: bold;
-        margin-top: 35px;
+        margin-top: 15px;
         color: #1b344e;
         a {
           color: #48aee1;

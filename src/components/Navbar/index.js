@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
-import defaultAvatar from './images/user.png'
+import { Scrollbars } from 'react-custom-scrollbars';
 import './style.scss'
 
 
@@ -13,35 +13,65 @@ class Navbar extends Component {
   render() {
     return (
       <div className="navbar-container">
-        <div className="item-box profile">
-          <div>
-            <img alt="avt" src={defaultAvatar} />
+        <Scrollbars
+          style={{height: 'calc(100vh - 62px)', width: '100%'}}>
+          <div className="box-item">
+            <div className="title">Menu</div>
+            <div className="sub-title">
+              <span>Home Page</span>
+              <Icon type="home" theme="filled" />
+            </div>
+            <div className="sub-title">
+              <span>Shop</span>
+              <Icon type="skin" theme="filled" />
+            </div>
           </div>
-        </div>
-        <div className="item-box">
-          <div>
-            <Icon type="message" theme="filled" />
-            <div>Messages</div>
+          <div className="box-item">
+            <div className="title">Categories</div>
+            <div className="sub-title">
+              <span>Your Club</span>
+              <Icon type="fire" theme="filled" />
+            </div>
+            <div className="sub-title">
+              <span>Friends</span>
+              <Icon type="smile" theme="filled" />
+            </div>
+            <div className="sub-title">
+              <span>Calendar</span>
+              <Icon type="schedule" theme="filled" />
+            </div>
+            <div className="sub-title">
+              <span>Tournaments</span>
+              <Icon type="trophy" theme="filled" />
+            </div>
           </div>
-        </div>
-        <div className="item-box">
-          <div>
-            <Icon type="star" theme="filled" />
-            <div>Team</div>
+          <div className="box-item">
+            <div className="title">Host Hub</div>
+            <div className="sub-title">
+              <span>Hosts</span>
+              <Icon type="crown" theme="filled" />
+            </div>
+            <div className="sub-title">
+              <span>Become A Host</span>
+              <Icon type="environment" theme="filled" />
+            </div>
           </div>
-        </div>
-        <div className="item-box">
-          <div>
-            <Icon theme="filled" type="environment" />
-            <div>Locations</div>
+          <div className="box-item">
+            <div className="title">Support</div>
+            <div className="sub-title">
+              <span>Help</span>
+              <Icon type="question-circle" theme="filled" />
+            </div>
+            <div className="sub-title">
+              <span>About Us</span>
+              <Icon type="thunderbolt" theme="filled" />
+            </div>
+            <div className="sub-title">
+              <span>Contact Us</span>
+              <Icon type="mail" theme="filled" />
+            </div>
           </div>
-        </div>
-        <div className="item-box">
-          <div>
-            <Icon theme="filled" type="setting" />
-            <div>Setting</div>
-          </div>
-        </div>
+        </Scrollbars>
       </div>
     )
   }

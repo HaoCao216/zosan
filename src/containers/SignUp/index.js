@@ -48,7 +48,7 @@ class SignUp extends Component {
     return (
       <div className="sign-up-container">
         <div className="login-form">
-          <nav className="header-form">
+          {/* <nav className="header-form">
             <img src={require('./images/logo.png')} alt="bg" />
             <div className="display-flex">
               <div className="step step-active">
@@ -61,7 +61,7 @@ class SignUp extends Component {
                 <span>Basic Info</span>
               </div>
             </div>
-          </nav>
+          </nav> */}
           <section>
             <div className="title-step">
               <div>Signup</div>

@@ -51,12 +51,12 @@ class Login extends Component {
     return (
       <div className="login-container">
         <div className="login-form">
-          <nav className="header-form">
+          {/* <nav className="header-form">
             <img src={require('./images/logo.png')} alt="bg" />
             <div className="display-flex">
               <span>Connect everyone is our mission</span>
             </div>
-          </nav>
+          </nav> */}
           <section>
             <div className="title-step">
               <div>Log in</div>
