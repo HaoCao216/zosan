@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../../components/Header'
 import Card from '../../containers/Card'
 import { Select, Radio } from 'antd';
-import { Scrollbars } from 'react-custom-scrollbars';
 import Masonry from 'react-masonry-css'
 import shuffle from 'lodash/shuffle';
 import r1 from './images/random1.jpeg';
