@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from '../../containers/Card'
+import Card from '../../components/Card';
 import { Select, Radio } from 'antd';
 import Masonry from 'react-masonry-css'
 import shuffle from 'lodash/shuffle';
