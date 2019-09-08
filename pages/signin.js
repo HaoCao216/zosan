@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import Link from 'next/link';
 import { compose } from 'recompose';
 import { Alert } from 'antd';
 
 
-import { withFirebase } from '../../firebase';
-import * as ROUTES from '../../constants/routes';
-import './style.scss'
+import { withFirebase } from '../src/firebase';
+import * as ROUTES from '../src/constants/routes';
+import Page from '../layouts/main';
+
+import './signin.style.scss';
 
 const INITIAL_STATE =  {
   email: '',
   password: '',
 }
 
-class Login extends Component {
+class Signin extends Component {
   constructor(props) {
     super(props)
     this.state = { ...INITIAL_STATE };
@@ -25,7 +27,7 @@ class Login extends Component {
 
   onSubmit = event => {
     const { email, password } = this.state;
-    const { firebase, history } = this.props
+    const { firebase, history } = this.props;
 
     firebase
       .emailSignin(email, password)
@@ -49,10 +51,10 @@ class Login extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <div className="login-container">
+      <Page className="login-container">
         <div className="login-form">
           <nav className="header-form">
-            <img src={require('./images/logo.png')} alt="bg" />
+            <img src="/static/images/logo.png" alt="bg" />
             <div className="display-flex">
               <span>Connect everyone is our mission</span>
             </div>
@@ -84,15 +86,19 @@ class Login extends Component {
             /> : ''}
             <br />
             <button disabled={isInvalid} onClick={this.onSubmit} className="create-account-btn">Log In</button>
-            <div className="login-with-account">Dont have account? <Link to={ROUTES.SIGNUP}>Sign up here</Link></div>
+            <div className="login-with-account">Dont have account?
+              <Link href={ROUTES.SIGNUP}>
+                <a> Sign up here</a>
+              </Link>
+            </div>
           </section>
         </div>
         <div className="background-right">
         </div>
-      </div>
+      </Page>
     )
   }
 }
 
-export default compose(withFirebase,withRouter)(Login)
+export default compose(withFirebase)(Signin)
 
