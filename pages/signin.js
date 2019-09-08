@@ -6,6 +6,8 @@ import { Alert } from 'antd';
 
 import { withFirebase } from '../src/firebase';
 import * as ROUTES from '../src/constants/routes';
+import Page from '../layouts/main';
+
 import './signin.style.scss';
 
 const INITIAL_STATE =  {
@@ -25,7 +27,7 @@ class Signin extends Component {
 
   onSubmit = event => {
     const { email, password } = this.state;
-    const { firebase, history } = this.props
+    const { firebase, history } = this.props;
 
     firebase
       .emailSignin(email, password)
@@ -49,7 +51,7 @@ class Signin extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <div className="login-container">
+      <Page className="login-container">
         <div className="login-form">
           <nav className="header-form">
             <img src="/static/images/logo.png" alt="bg" />
@@ -93,7 +95,7 @@ class Signin extends Component {
         </div>
         <div className="background-right">
         </div>
-      </div>
+      </Page>
     )
   }
 }

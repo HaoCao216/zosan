@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import app from 'firebase/app';
 import 'firebase/auth';
 
@@ -24,7 +25,10 @@ const config =
 // console.log('config', process.env);
 class Firebase {
   constructor() {
-    app.initializeApp(config);
+    if (!firebase.apps.length) {
+      app.initializeApp(config);
+    }
+
     this.auth = app.auth();
   }
 

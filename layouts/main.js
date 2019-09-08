@@ -1,8 +1,12 @@
 /* eslint-disable react/react-in-jsx-scope */
-import Meta from '../src/components/Meta'
-export default ({ children }) => (
-  <div>
+import Meta from './Meta';
+import './main.scss';
+
+export default ({ children, className }) => (
+  <>
     <Meta />
-    { children }
-  </div>
+    <div className={`main ${className}`}>
+      { children }
+    </div>
+  </>
 )

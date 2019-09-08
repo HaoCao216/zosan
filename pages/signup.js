@@ -4,6 +4,7 @@ import { Button, Input, Alert } from 'antd';
 import { compose } from 'recompose';
 
 import { withFirebase } from '../src/firebase';
+import Page from '../layouts/main';
 import * as ROUTES from '../src/constants/routes';
 
 import './signup.style.scss'
@@ -46,7 +47,7 @@ class SignUp extends Component {
     const isInvalid = password !== rePassword || password === '' || email === '';
 
     return (
-      <div className="sign-up-container">
+      <Page className="sign-up-container">
         <div className="login-form">
           <nav className="header-form">
             <img src="/static/images/logo.png" alt="bg" />
@@ -120,7 +121,7 @@ class SignUp extends Component {
         </div>
         <div className="background-right">
         </div>
-      </div>
+      </Page>
     )
   }
 }
