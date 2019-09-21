@@ -5,6 +5,8 @@ import * as ROUTES from './constants/routes';
 import Login from './containers/Login'
 import SignUp from './containers/SignUp'
 import LandingPage from './containers/LandingPage'
+import MatchInfo from './containers/MatchInfo'
+import CreateMatch from './containers/CreateMatch'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { Scrollbars } from 'react-custom-scrollbars';
@@ -21,6 +23,8 @@ function App() {
           <Route exact path={ROUTES.SIGNUP} name="SignUp Page" component={SignUp} />
           <Route exact path={ROUTES.SIGNIN} name="Login Page" component={Login} />
           <Route exact path={ROUTES.HOME} name="Landing Page" component={LandingPage} />
+          <Route exact path={ROUTES.MATCHINFO} name="Landing Page" component={MatchInfo} />
+          <Route exact path={ROUTES.CREATEMATCH} name="Landing Page" component={CreateMatch} />
           {/* <Route exact path="/404" name="Page 404" component={Page404} /> */}
           {/* <Route exact path="/500" name="Page 500" component={Page500} /> */}
         </Switch>

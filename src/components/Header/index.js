@@ -99,12 +99,6 @@ class Header extends Component {
             <img src={logo} alt="logo" />
             <span>Zosan</span>
           </div>
-          {/* <div className="menu">
-            <span>Calendar</span>
-            <span>Friends</span>
-            <span>Popular</span>
-            <span>stories</span>
-          </div> */}
         </div>
         <Search
           className="search"

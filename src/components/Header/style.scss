@@ -79,6 +79,9 @@
     }
   }
   .right-options {
+    width: 170px;
+    display: flex;
+    justify-content: flex-end;
     .notifications {
       i {
         cursor: pointer;

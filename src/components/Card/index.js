@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import { Icon, Modal, Button, Carousel } from 'antd';
+import { Link } from 'react-router-dom';
+import { Icon, Carousel } from 'antd';
 import avatar from './images/user.png'
 
+import fieldName from '../../assets/images/soccer-field.png'
+import time from '../../assets/images/calendar.png'
+import clock from '../../assets/images/clock.png'
+import price from '../../assets/images/purse.png'
 import './style.scss'
 
 
@@ -11,27 +16,12 @@ class Card extends Component {
     this.state = {
       marked: false,
       loading: false,
-      visible: false,
     };
   }
 
   toggleMark = () => {
     const { marked } = this.state
     this.setState({ marked: !marked })
-  }
-
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  handleOk = () => {
-    this.setState({ visible: false });
-  }
-
-  handleCancel = () => {
-    this.setState({ visible: false });
   }
 
   next = () => {
@@ -42,7 +32,7 @@ class Card extends Component {
   }
 
   render() {
-    const { marked, visible } = this.state
+    const { marked } = this.state
     const { imageStatus, data } = this.props
     return (
       <div className="card-container">
@@ -59,7 +49,7 @@ class Card extends Component {
           </div>
           <div className="mark-card">
             {
-              !marked ? <Icon style={{ fontSize: 20 }} onClick={this.toggleMark} type="star"/> : <Icon style={{ fontSize: 20, color: 'yellow' }} onClick={this.toggleMark} type="star" theme="filled" />
+              !marked ? <Icon style={{ fontSize: 20 }} onClick={this.toggleMark} type="pushpin"/> : <Icon style={{ fontSize: 20, color: 'yellow' }} onClick={this.toggleMark} type="pushpin" theme="filled" />
             }
           </div>
         </div>
@@ -85,62 +75,42 @@ class Card extends Component {
             {data.message}
           </div>
           <div className="info-match">
-            <div className="item-info">
-              <Icon type="clock-circle"/>
-              <div className="info-body">
-                <div>Time</div>
-                <span>12:00</span>
+            <div className="time-box">
+              <div className="item-info">
+                <img alt="icon" src={time} />
+                <div className="info-body">
+                  <span>Friday, 28th December 2019</span>
+                </div>
+              </div>
+              <div className="item-info">
+                <img alt="icon" src={fieldName} />
+                <div className="info-body">
+                  <span>Sân Rạch Chay</span>
+                </div>
               </div>
             </div>
-            <div className="item-info">
-              <Icon type="calendar"/>
-              <div className="info-body">
-                <div>Date</div>
-                <span>12 Apr</span>
+            <div className="time-box">
+              <div className="item-info">
+                <img alt="icon" src={clock} />
+                <div className="info-body">
+                  <span>06:30PM - 07:30PM</span>
+                </div>
               </div>
-            </div>
-            <div className="item-info">
-              <Icon type="dollar"/>
-              <div className="info-body">
-                <div>Price</div>
-                <span>Free</span>
+              <div className="item-info">
+                <img alt="icon" src={price} />
+                <div className="info-body">
+                  <span>Free</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div className="group-btn">
           <button>Apply</button>
-          <button onClick={this.showModal}>View</button>
+          <Link to="/match">
+            View
+          </Link>
         </div>
-        <Modal
-          visible={visible}
-          title="Match info"
-          style={{ top: 20 }}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-          closable={false}
-          footer={[
-            <Button key="back" onClick={this.handleCancel}>
-              Close
-            </Button>,
-            <Button key="submit" type="primary" onClick={this.handleOk}>
-              Apply
-            </Button>,
-          ]}
-        >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Modal>
       </div>
     )
   }
