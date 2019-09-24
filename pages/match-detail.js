@@ -137,6 +137,16 @@ class MatchInfo extends Component {
             </Row>
             <Row gutter={40}>
               <Col span={12}>
+                <div className="child-setting bottom-margin" style={{ alignItems: 'center' }}>
+                  <img alt="icon" src='/static/images/purse.png' />
+                  <div className="child-setting__info">
+                    <span>
+                      <span>Phí</span> : 50/50
+                    </span>
+                  </div>
+                </div>
+              </Col>
+              <Col span={12}>
                 <div className="child-setting bottom-margin">
                   <img alt="icon" src='/static/images/soccer-field.png' />
                   <div className="child-setting__info">
@@ -146,24 +156,14 @@ class MatchInfo extends Component {
                   </div>
                 </div>
               </Col>
+            </Row>
+            <Row gutter={40}>
               <Col span={12}>
                 <div className="child-setting bottom-margin" style={{ alignItems: 'center' }}>
                   <img alt="icon" src='/static/images/maps-and-flags.png' />
                   <div className="child-setting__info">
                     <span>
                       <span>Địa chỉ</span> : 267 Chu Văn An, Bình Thạnh, Hồ Chí Minh
-                    </span>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-            <Row gutter={40}>
-              <Col span={12}>
-                <div className="child-setting bottom-margin" style={{ alignItems: 'center' }}>
-                  <img alt="icon" src='/static/images/purse.png' />
-                  <div className="child-setting__info">
-                    <span>
-                      <span>Phí</span> : 50/50
                     </span>
                   </div>
                 </div>
