@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Icon, Row, Col } from 'antd';
 import { Radar } from 'react-chartjs-2';
-import Page from '../layouts/main';
+import Page from '../../layouts/main';
 
-import './match-detail.styles.scss'
+import './info.styles.scss'
 
 const options = {
   responsive: true, // doesn't work
