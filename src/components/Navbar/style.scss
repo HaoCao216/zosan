@@ -1,0 +1,41 @@
+.navbar-container {
+  .customize-scroll {
+    border-radius: 4px;
+    background-color: #48aee1;
+  }
+  .box-item {
+    &:not(:last-child) {
+      border-bottom: 1px solid #192842;
+    }
+    .title {
+      font-weight: bold;
+      padding: 20px 24px;
+      padding-bottom: 10px;
+      color: #fff;
+      font-size: 14px;
+    }
+    .sub-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all .1s ease;
+      cursor: pointer;
+      padding: 6px 20px;
+      border-left: 4px solid transparent;
+      font-size: 12px;
+      order: 1;
+      font-weight: 600;
+      color: #99a7c1;
+      &:hover {
+        border-left: 4px solid #48aee1;
+        color: #fff
+      }
+      i {
+        font-size: 13px;
+      }
+      &:last-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

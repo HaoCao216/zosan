@@ -1,6 +1,6 @@
 .login-container {
-  min-height: 100vh;
-  overflow: hidden;
+  min-height: calc(100vh - 62px);
+  // overflow: hidden;
   display: flex;
   .login-form {
     width: 40%;
@@ -11,8 +11,9 @@
       margin: auto;
       position: absolute;
       left: 50%;
-      transform: translateX(-50%);
-      top: 18%;
+      top: 45%;
+      transform: translateX(-50%) translateY(-50%);
+      // top: 18%;
       .title-step {
         margin-bottom: 40px;
         div {
@@ -30,7 +31,7 @@
       .login-with-account {
         font-size: 13px;
         font-weight: bold;
-        margin-top: 35px;
+        margin-top: 5px;
         color: #1b344e;
         a {
           color: #48aee1;
