@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Select, Input, Icon, DatePicker, TimePicker } from 'antd';
 import moment from 'moment';
-import Page from '../layouts/main';
+import Page from '../../layouts/main';
 
-import './create-match.styles.scss'
+import './create.styles.scss'
 
 const OPTIONS = [
   {
@@ -50,6 +50,14 @@ const OPTIONS = [
   },
 ];
 
+const media = {
+  time: '- Lúc',
+  fieldName: '- Sân',
+  location: '- Tại',
+  price: '- Tiền sân',
+  tags: '- Với'
+}
+
 const { TextArea } = Input;
 
 const format = 'HH:mm';
@@ -85,30 +93,9 @@ class CreateMatch extends Component {
   renderTitle = () => {
     const { mediaEditing, tagFriend } = this.state
     const filteredOptions = OPTIONS.filter(o => !tagFriend.includes(o))
-    let title = ''
-    switch(mediaEditing) {
-      case 'time':
-        title = '- Lúc'
-        break
-      case 'fieldName':
-        title = '- Sân'
-        break
-      case 'location':
-        title = '- Tại'
-        break
-      case 'price':
-        title = '- Tiền sân'
-        break
-      case 'tags':
-        title = '- Với'
-        break
-      default:
-        title = ''
-        break
-    }
     return (
       <div className="render-title">
-        <div className="type">{title}</div>
+        <div className="type">{media[mediaEditing]}</div>
         {
           mediaEditing === 'tags' && <Select
             className="custom-select"
