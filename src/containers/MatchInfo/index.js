@@ -9,6 +9,8 @@ import fieldName from '../../assets/images/soccer-field.png'
 import time from '../../assets/images/calendar.png'
 import clock from '../../assets/images/clock.png'
 import price from '../../assets/images/purse.png'
+import location from '../../assets/images/maps-and-flags.png'
+
 import './style.scss'
 
 const options = {
@@ -125,11 +127,45 @@ class MatchInfo extends Component {
                   <img alt="icon" src={time} />
                   <div className="child-setting__info">
                     <span>
-                      <span>Thời gian</span> : 06:30PM - 07:30PM / Friday, 28th December 2019
+                      <span>Thời gian</span> : Friday, 28th December 2019
                     </span>
                   </div>
                 </div>
               </Col>
+              <Col span={12}>
+                <div className="child-setting bottom-margin" style={{ alignItems: 'center' }}>
+                  <img alt="icon" src={clock} />
+                  <div className="child-setting__info">
+                    <span>
+                      <span>Lúc</span> : 06:30PM - 07:30PM
+                    </span>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+            <Row gutter={40}>
+              <Col span={12}>
+                <div className="child-setting bottom-margin">
+                  <img alt="icon" src={fieldName} />
+                  <div className="child-setting__info">
+                    <span>
+                      <span>Sân</span> : Sân Rạch Chay
+                    </span>
+                  </div>
+                </div>
+              </Col>
+              <Col span={12}>
+                <div className="child-setting bottom-margin" style={{ alignItems: 'center' }}>
+                  <img alt="icon" src={location} />
+                  <div className="child-setting__info">
+                    <span>
+                      <span>Địa chỉ</span> : 267 Chu Văn An, Bình Thạnh, Hồ Chí Minh
+                    </span>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+            <Row gutter={40}>
               <Col span={12}>
                 <div className="child-setting bottom-margin" style={{ alignItems: 'center' }}>
                   <img alt="icon" src={price} />
@@ -140,21 +176,9 @@ class MatchInfo extends Component {
                   </div>
                 </div>
               </Col>
-            </Row>
-            <Row gutter={40}>
               <Col span={12}>
                 <div className="child-setting">
-                  <img alt="icon" src={fieldName} />
-                  <div className="child-setting__info">
-                    <span>
-                      <span>Địa chỉ</span> : Sân Rạch Chay / 267 Chu Văn An, Bình Thạnh, Hồ Chí Minh
-                    </span>
-                  </div>
-                </div>
-              </Col>
-              <Col span={12}>
-                <div className="child-setting" style={{ alignItems: 'center' }}>
-                  <img alt="icon" src={price} />
+                   <img alt="icon" src={price} />
                   <div className="child-setting__info">
                     <span>
                       <span>Liên hệ</span> : 0975702xxx <span className="block-contact">Apply to see</span>
