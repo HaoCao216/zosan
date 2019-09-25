@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Select, Input, Icon, DatePicker, TimePicker } from 'antd';
 import moment from 'moment';
 import Page from '../../layouts/main';
+import { withAuthentication } from '../../src/components/Session';
 
 import './create.styles.scss'
 
@@ -298,4 +299,4 @@ class CreateMatch extends Component {
   }
 }
 
-export default CreateMatch
+export default withAuthentication(CreateMatch);

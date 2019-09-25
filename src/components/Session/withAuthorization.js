@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import Router from 'next/router';
 import { compose } from 'recompose';
 
 import { withFirebase } from '../../firebase';
@@ -11,11 +11,11 @@ import AuthUserContext from './context';
 const withAuthorization = condition => Component => {
   class WithAuthorization extends React.Component {
     componentDidMount() {
-      const { firebase, history } = this.props
+      const { firebase } = this.props
       this.listener = firebase.auth.onAuthStateChanged(
         authUser => {
           if (!condition(authUser)) {
-            history.push(ROUTES.SIGNIN);
+            Router.push(ROUTES.SIGNIN);
           }
         },
       );
@@ -28,16 +28,13 @@ const withAuthorization = condition => Component => {
     render() {
       return (
         <AuthUserContext.Consumer>
-          {authUser =>
-            condition(authUser) ? <Component {...this.props} /> : null
-          }
+          {authUser => condition(authUser) ? <Component {...this.props} /> : null}
         </AuthUserContext.Consumer>
       );
     }
   }
 
   return compose(
-    withRouter,
     withFirebase,
   )(WithAuthorization);
 };

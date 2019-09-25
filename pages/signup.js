@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import { Button, Input, Alert } from 'antd';
 import { compose } from 'recompose';
 
@@ -27,13 +28,13 @@ class SignUp extends Component {
 
   onSubmit = event => {
     const { email, password } = this.state;
-    const { firebase, history } = this.props;
+    const { firebase } = this.props;
     this.setState({ loading: true });
     firebase
       .emailSignup(email, password)
       .then(authUser => {
         this.setState({ loading: false });
-        history.push(ROUTES.HOME);
+        Router.push(ROUTES.HOME);
       })
       .catch(error => {
         this.setState({ loading: false });

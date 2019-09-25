@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import Card from '../src/components/Card';
 import { Select, Radio } from 'antd';
-import Page from '../layouts/main';
-import Masonry from 'react-masonry-css'
 import shuffle from 'lodash/shuffle';
+import Masonry from 'react-masonry-css';
+
+import Page from '../layouts/main';
+import Card from '../src/components/Card';
+
 // import r1 from '../static/images/random1.jpeg';
 // import r2 from '../static/images/random2.jpeg';
 // import r3 from '../static/images/random3.jpeg';
@@ -15,8 +17,8 @@ import shuffle from 'lodash/shuffle';
 
 import './index.styles.scss';
 
-const randomImg = [1, 2, 3, 4 ,5, 6, 7 ,8]
-const { Option } = Select
+const randomImg = [1, 2, 3, 4 ,5, 6, 7 ,8];
+const { Option } = Select;
 const data = [
   {
     title: 'Title 1',
@@ -100,7 +102,6 @@ class LandingPage extends Component {
                 <Option value="72">Past 3 days</Option>
               </Select>
             </div>
-            
               <Masonry
                 breakpointCols={{
                   default: 4,
