@@ -3,7 +3,7 @@ import { Icon, Row, Col } from 'antd';
 import { Radar } from 'react-chartjs-2';
 import Page from '../../layouts/main';
 
-import './info.styles.scss'
+import './[id].styles.scss'
 
 const options = {
   responsive: true, // doesn't work
@@ -56,8 +56,7 @@ const options = {
 class MatchInfo extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-    };
+    this.state = { };
   }
 
   render() {

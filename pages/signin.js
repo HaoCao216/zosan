@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import { compose } from 'recompose';
 import { Alert } from 'antd';
 
@@ -21,19 +22,23 @@ class Signin extends Component {
     this.state = { ...INITIAL_STATE };
   }
 
+  componentDidMount() {
+
+  }
+
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
   onSubmit = event => {
     const { email, password } = this.state;
-    const { firebase, history } = this.props;
+    const { firebase } = this.props;
 
     firebase
       .emailSignin(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        history.push(ROUTES.HOME);
+        Router.push(ROUTES.HOME);
       })
       .catch(error => {
         console.log('error', error);

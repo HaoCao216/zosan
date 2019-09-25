@@ -20,9 +20,8 @@ const devConfig = {
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
 };
 
-const config =
-  process.env.NODE_ENV === 'production' ? prodConfig : devConfig;
-// console.log('config', process.env);
+const config = process.env.NODE_ENV === 'production' ? prodConfig : devConfig;
+
 class Firebase {
   constructor() {
     if (!firebase.apps.length) {
@@ -40,8 +39,7 @@ class Firebase {
 
   doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
-  doPasswordUpdate = password =>
-  this.auth.currentUser.updatePassword(password);
+  doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 
   signOut = () => this.auth.signOut();
 }

@@ -103,8 +103,8 @@ class Card extends Component {
         </div>
         <div className="group-btn">
           <button>Apply</button>
-          <Link href={ROUTES.MATCHDETAIL}>
-            View
+          <Link href="/match/1">
+            <a>View</a>
           </Link>
         </div>
       </div>
