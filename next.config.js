@@ -1,7 +1,6 @@
 const withSass = require('@zeit/next-sass');
 const withCSS = require("@zeit/next-css");
-const { parsed: localEnv } = require('dotenv').config();
-const webpack = require('webpack')
+
 module.exports = withCSS(withSass({
   webpack (config, options) {
     config.module.rules.push({
@@ -13,8 +12,9 @@ module.exports = withCSS(withSass({
         }
       }
     });
-
-    config.plugins.push(new webpack.EnvironmentPlugin(localEnv));
+    config.node = {
+      fs: 'empty'
+    }
     return config;
   }
 }));
